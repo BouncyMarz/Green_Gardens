@@ -1,12 +1,16 @@
 extends Node2D
-var SPEED = 0.1
+@onready var map = $"../.."
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.progress_ratio = 0
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if self.progress_ratio < 0.99:
-		self.progress_ratio += delta * SPEED
-	$"Enemy Body/Sprite2D".play("default")
+	pass
+
+
+func _on_tower_dup():
+	var instance = preload("res://tower.tscn").instantiate()
+	map.add_child(instance)

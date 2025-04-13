@@ -1,15 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8720n1c7t5cr"]
+[gd_scene load_steps=4 format=3 uid="uid://b8720n1c7t5cr"]
 
 [ext_resource type="Script" path="res://title_screen.gd" id="1_bafbl"]
+[ext_resource type="Texture2D" uid="uid://dad2mbmndy8gm" path="res://Keep-the-Environment-Clean-7.webp" id="2_byago"]
+
+[sub_resource type="SystemFont" id="SystemFont_tcct3"]
+font_names = PackedStringArray("Pixelated")
 
 [node name="Title_Screen" type="Node2D"]
 script = ExtResource("1_bafbl")
 
+[node name="Keep-the-environment-clean-7" type="Sprite2D" parent="."]
+position = Vector2(597, 366)
+scale = Vector2(0.719558, 0.719558)
+texture = ExtResource("2_byago")
+
 [node name="Label" type="Label" parent="."]
+offset_top = 48.0
 offset_right = 1154.0
-offset_bottom = 207.0
+offset_bottom = 255.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_tcct3")
 theme_override_font_sizes/font_size = 100
-text = "Green Gardens"
+text = "Green Guardians"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="."]
