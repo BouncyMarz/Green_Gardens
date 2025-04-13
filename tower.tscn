@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://bar10h2a2cpke"]
+
+[ext_resource type="Texture2D" uid="uid://cv4x3d36ivs0r" path="res://Sapling_Idle.png" id="1_f5ncg"]
+[ext_resource type="Script" path="res://tower.gd" id="1_twnlg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s44mt"]
+atlas = ExtResource("1_f5ncg")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_114jc"]
+atlas = ExtResource("1_f5ncg")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y5b46"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s44mt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_114jc")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l43d4"]
+radius = 58.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o8q26"]
+radius = 102.591
+
+[node name="tower" type="CharacterBody2D"]
+input_pickable = true
+script = ExtResource("1_twnlg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_y5b46")
+animation = &"Idle"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 48)
+shape = SubResource("CircleShape2D_l43d4")
+
+[node name="Attack Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack Area"]
+position = Vector2(0, 40)
+shape = SubResource("CircleShape2D_o8q26")
+
+[connection signal="body_entered" from="Attack Area" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="Attack Area" to="." method="_on_attack_area_body_exited"]

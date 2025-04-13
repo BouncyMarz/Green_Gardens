@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://daotpik0fp7ww"]
+
+[ext_resource type="Texture2D" uid="uid://cskn6feoh7cl3" path="res://icon.svg" id="1_d0107"]
+[ext_resource type="Script" path="res://enemy.gd" id="1_tt0t2"]
+[ext_resource type="Script" path="res://Enemy Body.gd" id="2_yjox2"]
+[ext_resource type="Script" path="res://Enemy Health Label.gd" id="4_tfxhn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_keact"]
+radius = 88.6848
+
+[node name="Enemy" type="PathFollow2D"]
+script = ExtResource("1_tt0t2")
+
+[node name="Enemy Body" type="CharacterBody2D" parent="."]
+script = ExtResource("2_yjox2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy Body"]
+texture = ExtResource("1_d0107")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy Body"]
+shape = SubResource("CircleShape2D_keact")
+
+[node name="Enemy Health Label" type="Label" parent="Enemy Body"]
+offset_left = -20.0
+offset_top = -47.0
+offset_right = 20.0
+offset_bottom = -24.0
+script = ExtResource("4_tfxhn")
