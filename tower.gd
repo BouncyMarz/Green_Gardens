@@ -12,7 +12,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if draggable:
+	if draggable and Glo.money >= 10:
 		if Input.is_action_just_pressed("click"):
 			emit_signal('dup')
 			offset = get_global_mouse_position() - global_position
@@ -30,6 +30,7 @@ func _on_attack_area_body_entered(body):
 		while Glo.health > 0:
 			if body in in_area:
 				body.health -= 5
+				Glo.money += 2
 				await get_tree().create_timer(2).timeout
 			else:
 				break

@@ -20,6 +20,7 @@ func _on_area_2d_body_entered(body):
 	if body.name == 'Enemy Body':
 		Glo.health -= 10
 		await get_tree().create_timer(0.3).timeout
+		body.animation.stop
 		body.queue_free()
 
 

@@ -16,7 +16,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_skksw"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 244, 63, 0, 0, 0, 0, 899, 52, 0, 0, 0, 0, 904, 273, 0, 0, 0, 0, 257, 281, 0, 0, 0, 0, 255, 471, 0, 0, 0, 0, 1057, 473)
+"points": PackedVector2Array(0, 0, 0, 0, 487, 56, 0, 0, 0, 0, 899, 52, 0, 0, 0, 0, 904, 273, 0, 0, 0, 0, 257, 281, 0, 0, 0, 0, 255, 471, 0, 0, 0, 0, 1057, 473)
 }
 point_count = 6
 
@@ -84,7 +84,7 @@ texture = ExtResource("2_odjpr")
 curve = SubResource("Curve2D_skksw")
 
 [node name="Enemy" parent="Path2D" instance=ExtResource("2_shgyv")]
-position = Vector2(244, 63)
+position = Vector2(487, 56)
 rotation = -0.0167923
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -120,14 +120,14 @@ mouse_filter = 2
 
 [node name="Panel2" type="Panel" parent="."]
 self_modulate = Color(1, 1, 1, 0)
-offset_left = 53.0
+offset_left = 22.0
 offset_top = 400.0
-offset_right = 93.0
+offset_right = 62.0
 offset_bottom = 440.0
 mouse_filter = 2
 
 [node name="tower" type="CharacterBody2D" parent="."]
-position = Vector2(67, 381)
+position = Vector2(36, 381)
 input_pickable = true
 script = ExtResource("8_p4hb4")
 
@@ -163,6 +163,13 @@ texture = ExtResource("9_ppa37")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Drag/Area2D"]
 position = Vector2(73.5, 419)
 shape = SubResource("RectangleShape2D_xt0kn")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 86.0
+offset_top = 429.0
+offset_right = 126.0
+offset_bottom = 452.0
+text = "= $10"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="dup" from="tower" to="." method="_on_tower_dup"]
